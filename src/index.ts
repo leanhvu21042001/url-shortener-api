@@ -1,6 +1,19 @@
-import dotenv from 'dotenv-safe';
-import add from '@src/math/add';
+import config from 'config';
+import express from 'express';
+import bodyParser from 'body-parser';
+// import from src/*
+import connectDatabase from './db';
+import routes from './routes';
 
-dotenv.config();
+const app = express();
+const port = config.get('port');
 
-console.log(add(3, 3));
+// middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.listen(port, () => {
+  connectDatabase();
+  routes(app);
+  console.log(`http://localhost:${port}`);
+});
