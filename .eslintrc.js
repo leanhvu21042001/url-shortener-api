@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'prettier', 'import'],
   rules: {
+    'no-useless-escape': 'off',
     'no-underscore-dangle': 'off',
     'prettier/prettier': 'error',
     'import/extensions': 'off',
