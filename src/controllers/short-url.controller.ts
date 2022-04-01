@@ -29,7 +29,7 @@ export async function handleRedirect(req: Request, res: Response) {
   analytics.create({ shortId: short._id });
 
   // redirect to url
-  return res.redirect(short.destination);
+  return res.status(200).json({ destination: short.destination });
 }
 
 export async function getAnalytics(_req: Request, res: Response) {

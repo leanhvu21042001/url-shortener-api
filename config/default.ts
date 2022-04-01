@@ -1,5 +1,8 @@
+import dotenvSafe from 'dotenv-safe';
+
+dotenvSafe.config();
+
 export default {
   port: 5050,
-  dbUri:
-    'mongodb+srv://leanhvu:leanhvu@leanhvu.dmin2.mongodb.net/shorterner-url?retryWrites=true&w=majority',
+  dbUri: process.env.DB_URI,
 };
